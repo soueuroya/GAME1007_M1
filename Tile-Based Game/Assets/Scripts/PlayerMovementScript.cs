@@ -13,6 +13,11 @@ public class PlayerMovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ProcessInputMovement();
+    }
+
+    private void ProcessInputMovement()
+    {
         // player movement
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
@@ -26,7 +31,7 @@ public class PlayerMovementScript : MonoBehaviour
         {
             rb.velocity = Vector3.right * rb.velocity.x;
         }
-        
+
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = Vector3.right * -speed;

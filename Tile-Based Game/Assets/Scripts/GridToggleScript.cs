@@ -31,22 +31,6 @@ public class GridToggleScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Table")) // If we get close to the table
-        {
-            TurnON(); // Turn the grid ON
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Table")) // If we get far from the table
-        {
-            TurnOFF(); // Turn the grid OFF
-        }
-    }
-
     private void TurnON()
     {
         if (!isShowing)
@@ -70,6 +54,22 @@ public class GridToggleScript : MonoBehaviour
             canvasAnimation.SetTrigger("Hide");
             isShowing = false;
             Cursor.visible = false; // set cursor NOT visible
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Table")) // If we get close to the table
+        {
+            TurnON(); // Turn the grid ON
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Table")) // If we get far from the table
+        {
+            TurnOFF(); // Turn the grid OFF
         }
     }
 }
